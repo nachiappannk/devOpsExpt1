@@ -1,18 +1,11 @@
-version: 2.1
 orbs:
-  docker-publish: circleci/docker-publish@1.0.0
-jobs:
-  build:
-    machine: true
-    steps:
-      - checkout
-      - run:
-          name: The First Step
-          command: |
-            ls
-            docker build SampleApplication -f SampleApplication/SampleApplication/Dockerfile -t sample-application:500
-            echo 'This is the delivery pipeline'
+  docker: circleci/docker@0.5.2
+version: 2.1
 workflows:
-  "Hello Workflow":
+  build-and-publish-docker-image:
     jobs:
-      - build
+      - docker/publish:
+          dockerfile: Dockerfile
+          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+          path: SampleApplication/SampleApplication
+          registry: hub.docker.com
