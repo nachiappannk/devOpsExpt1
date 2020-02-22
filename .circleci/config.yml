@@ -7,6 +7,6 @@ workflows:
       - docker/publish:
           context: mycontext
           dockerfile: Dockerfile
-          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+          image: nachiappan/my-experiment
           path: SampleApplication/SampleApplication
           registry: index.docker.io
