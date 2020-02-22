@@ -7,7 +7,6 @@ workflows:
       - docker/publish:
           context: mycontext
           dockerfile: SampleApplication/SampleApplication/Dockerfile
-          path: SampleApplication/SampleApplication
           registry: index.docker.io
           image: nachiappan/testapplication
 
