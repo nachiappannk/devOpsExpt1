@@ -6,6 +6,8 @@ jobs:
     working_directory: ~/SampleApplication
     steps:
       - checkout
+      - run: |
+         echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
       - run:
           name: The First Step
           command: |
