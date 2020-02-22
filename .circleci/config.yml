@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  docker-publish: circleci/docker-publish@1.0.0
 jobs:
   build:
     machine: true
@@ -10,3 +12,7 @@ jobs:
             ls
             docker build SampleApplication -f SampleApplication/SampleApplication/Dockerfile -t sample-application:500
             echo 'This is the delivery pipeline'
+workflows:
+  "Hello Workflow":
+    jobs:
+      - build
