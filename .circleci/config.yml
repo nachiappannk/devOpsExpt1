@@ -9,3 +9,5 @@ workflows:
           dockerfile: Dockerfile
           path: SampleApplication/SampleApplication
           registry: index.docker.io
+          image: nachiappan/testapplication
+
