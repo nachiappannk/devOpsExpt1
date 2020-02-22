@@ -2,12 +2,11 @@ version: 2.1
 jobs:
   build:
     machine: true
-    working_directory: ~/SampleApplication
     steps:
       - checkout
       - run:
           name: The First Step
           command: |
             ls
-            docker build . -f SampleApplication/Dockerfile
+            docker build SampleApplication -f SampleApplication/SampleApplication/Dockerfile
             echo 'This is the delivery pipeline'
