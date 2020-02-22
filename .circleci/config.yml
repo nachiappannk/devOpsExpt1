@@ -9,5 +9,5 @@ jobs:
           name: The First Step
           command: |
             ls
-            docker build . -f ./SampleApplication/Dockerfile
+            docker build . -f SampleApplication/Dockerfile
             echo 'This is the delivery pipeline'
