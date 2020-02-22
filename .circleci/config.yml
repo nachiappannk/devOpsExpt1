@@ -1,12 +1,8 @@
- version: 2.1
-
- orbs:
-  win: circleci/windows@2.2.0
-
+ version: 2
  jobs:
    build:
-     executor: win/default     
-    
+     docker:
+       - image: circleci/ruby:2.4.1
      steps:
        - checkout
-       - run: dotnet build
+       - run: echo "A first hello"
