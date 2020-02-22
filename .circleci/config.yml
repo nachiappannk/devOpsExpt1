@@ -5,7 +5,7 @@ jobs:
       - image: alpine:3.7
     working_directory: ~/SampleApplication
     steps:
-      - checkout:
+      - checkout
       - run:
           name: The First Step
           command: |
