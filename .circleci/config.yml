@@ -10,11 +10,6 @@ jobs:
       - checkout
       - docker/check:
           registry: docker.io
-      - docker/build:
-          path: SampleApplication
-          image: nachiappan/testapplication
-          dockerfile: SampleApplication/SampleApplication/Dockerfile
-          tag: attempt
       - run:
           name: compute-tag
           command: |
@@ -22,14 +17,15 @@ jobs:
             commitNumber=$(git rev-list --count HEAD)
             TAG=${branchName}"-"${commitNumber}"-"${CIRCLE_SHA1}
             echo "export MYTAG=$TAG" >> $BASH_ENV
-      - run:
-          name: print-tag
-          command: |
-            echo "$MYTAG"
+      - docker/build:
+          path: SampleApplication
+          image: nachiappan/testapplication
+          dockerfile: SampleApplication/SampleApplication/Dockerfile
+          tag: ${MYTAG}
       - docker/push:
           image: nachiappan/testapplication
           registry: docker.io
-          tag: attempt
+          tag: ${MYTAG}
 
 workflows:
   dockerized-application:
