@@ -1,6 +1,6 @@
 jobs:
   build-and-push:
-    executor: docker/docker
+    executor: docker
     context: mycontext
     steps:
       - setup_remote_docker
