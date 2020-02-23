@@ -15,7 +15,7 @@ jobs:
           command: |
             branchName=${CIRCLE_BRANCH:0:20}
             commitNumber=$(git rev-list --count HEAD)
-            TAG=${branchName}"-"${commitNumber}"-"${CIRCLE_SHA1}"-{{ .BuildNum }}"
+            TAG=${branchName}"-"${commitNumber}"-"${CIRCLE_SHA1}
             echo "export MYTAG=$TAG" >> $BASH_ENV
       - docker/build:
           path: SampleApplication
