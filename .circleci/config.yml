@@ -13,6 +13,7 @@ jobs:
       - run: ls
       - run: echo "The above is ls"
       - docker/check:
+          registry: docker.io
       - docker/build:
           path: SampleApplication
           image: nachiappan/testapplication
@@ -20,6 +21,7 @@ jobs:
           tag: attempt
       - docker/push:
           image: nachiappan/testapplication
+          registry: docker.io
           tag: attempt
       - run:
           command: |
