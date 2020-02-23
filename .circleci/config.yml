@@ -16,10 +16,14 @@ jobs:
           dockerfile: SampleApplication/SampleApplication/Dockerfile
           tag: attempt
       - run:
+          name: compute-tag
           command: |
             branchName=${CIRCLE_BRANCH:0:20}
             commitNumber=$(git rev-list --count HEAD)
             MYTAG=${branchName}"-"${commitNumber}"-"${CIRCLE_SHA1}
+      - run:
+          name: print-tag
+          command: |
             echo ${MYTAG}
       - docker/push:
           image: nachiappan/testapplication
