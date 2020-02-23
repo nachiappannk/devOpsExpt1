@@ -15,7 +15,7 @@ jobs:
       - docker/build:
           path: SampleApplication
           image: nachiappan/testapplication
-          dockerfile: SampleApplication/Dockerfile
+          dockerfile: SampleApplication/SampleApplication/Dockerfile
       - docker/push:
           image: nachiappan/testapplication
           registry: index.docker.io
