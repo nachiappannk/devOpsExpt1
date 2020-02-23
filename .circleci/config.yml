@@ -21,8 +21,7 @@ jobs:
             branchName=${CIRCLE_BRANCH:0:20}
             commitNumber=$(git rev-list --count HEAD)
             TAG=${branchName}"-"${commitNumber}"-"${CIRCLE_SHA1}
-          environment:
-            MYTAG: $TAG
+            echo "export MYTAG=$TAG" >> $BASH_ENV
       - run:
           name: print-tag
           command: |
