@@ -20,8 +20,9 @@ jobs:
           command: |
             branchName=${CIRCLE_BRANCH:0:20}
             commitNumber=$(git rev-list --count HEAD)
-            MYTAG=${branchName}"-"${commitNumber}"-"${CIRCLE_SHA1}
-            echo "$MYTAG"
+            TAG=${branchName}"-"${commitNumber}"-"${CIRCLE_SHA1}
+          environment:
+            MYTAG=$TAG
       - run:
           name: print-tag
           command: |
