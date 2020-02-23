@@ -1,6 +1,7 @@
 jobs:
   build-and-push:
     executor: docker/docker
+    context: mycontext
     steps:
       - setup_remote_docker
       - checkout
@@ -17,8 +18,9 @@ jobs:
             echo "Digest is: $(</tmp/digest.txt)"
 orbs:
   docker: circleci/docker@0.5.2
-version: 2.1
 workflows:
-  commit:
+  version: 2
+  my-workflow:
     jobs:
       - build-and-push
+
