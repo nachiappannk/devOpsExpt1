@@ -6,6 +6,7 @@ orbs:
 jobs:
   build-and-push:
     machine: true
+    working_directory: ~/SampleApplication
     steps:
       - checkout
       - run: pwd
@@ -14,7 +15,6 @@ jobs:
       - run: echo "The above is ls"
       - docker/build:
           image: nachiappan/testapplication
-          working_directory: SampleApplication
           dockerfile: SampleApplication/Dockerfile
       - docker/push:
           image: nachiappan/testapplication
