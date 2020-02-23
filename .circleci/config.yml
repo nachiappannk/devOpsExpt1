@@ -3,8 +3,7 @@ orbs:
   docker: circleci/docker@0.5.2
 jobs:
   build-and-push:
-    machine:
-      image: ubuntu-1604:201903-01
+    executor: docker/machine
     context: mycontext
     steps:
       - setup_remote_docker
