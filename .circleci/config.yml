@@ -12,9 +12,10 @@ jobs:
       - run: echo "The above is pwd"
       - run: ls
       - run: echo "The above is ls"
+      - run: cd SampleApplication
       - docker/build:
           image: nachiappan/testapplication
-          dockerfile: SampleApplication/SampleApplication/Dockerfile
+          dockerfile: SampleApplication/Dockerfile
       - docker/push:
           image: nachiappan/testapplication
           registry: index.docker.io
