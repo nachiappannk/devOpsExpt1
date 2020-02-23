@@ -5,10 +5,8 @@ orbs:
 
 jobs:
   build-and-push:
-    docker:
-      - image: alpine:3.4
+    machine: true
     steps:
-      - setup_remote_docker
       - checkout
       - docker/build:
           image: nachiappan/testapplication
