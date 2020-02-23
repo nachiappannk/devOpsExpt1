@@ -12,6 +12,7 @@ jobs:
       - run: echo "The above is pwd"
       - run: ls
       - run: echo "The above is ls"
+      - docker/check:
       - docker/build:
           path: SampleApplication
           image: nachiappan/testapplication
