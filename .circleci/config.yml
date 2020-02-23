@@ -6,11 +6,11 @@ jobs:
     steps:
       - setup_remote_docker
       - checkout
-      - docker/build:
+      - build:
           image: nachiappan/testapplication
           path: SampleApplication
           dockerfile: SampleApplication/Dockerfile
-      - docker/push:
+      - push:
           image: nachiappan/testapplication
           registry: index.docker.io
       - run:
