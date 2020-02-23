@@ -8,11 +8,11 @@ jobs:
     machine: true
     steps:
       - checkout
+      - run: cd SampleApplication
       - run: pwd
       - run: echo "The above is pwd"
       - run: ls
       - run: echo "The above is ls"
-      - run: cd SampleApplication
       - docker/build:
           image: nachiappan/testapplication
           dockerfile: SampleApplication/Dockerfile
