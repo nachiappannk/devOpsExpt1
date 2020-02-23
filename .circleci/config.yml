@@ -6,7 +6,6 @@ jobs:
     steps:
       - setup_remote_docker
       - checkout
-      - docker/check
       - docker/build:
           image: nachiappan/testapplication
           path: SampleApplication
