@@ -1,12 +1,26 @@
+jobs:
+  build-and-push:
+    executor: docker/docker
+    steps:
+      - setup_remote_docker
+      - checkout
+      - docker/check
+      - docker/build:
+          image: nachiappan/testapplication
+          path: SampleApplication
+          dockerfile: SampleApplication/Dockerfile
+      - docker/push:
+          digest-path: /tmp/digest.txt
+          image: nachiappan/testapplication
+          registry: index.docker.io
+      - run:
+          command: |
+            echo "Digest is: $(</tmp/digest.txt)"
 orbs:
   docker: circleci/docker@0.5.2
 version: 2.1
 workflows:
-  build-and-publish-docker-image:
+  commit:
     jobs:
-      - docker/publish:
-          context: mycontext
-          dockerfile: SampleApplication/SampleApplication/Dockerfile
-          registry: index.docker.io
-          image: nachiappan/testapplication
+      - build-and-push
 
