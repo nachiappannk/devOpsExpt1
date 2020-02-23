@@ -8,6 +8,10 @@ jobs:
     machine: true
     steps:
       - checkout
+      - pwd
+      - echo "The above is pwd"
+      - ls
+      - echo "The above is ls"
       - docker/build:
           image: nachiappan/testapplication
           path: SampleApplication
