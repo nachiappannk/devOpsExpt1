@@ -10,7 +10,6 @@ jobs:
           path: SampleApplication
           dockerfile: SampleApplication/Dockerfile
       - docker/push:
-          digest-path: /tmp/digest.txt
           image: nachiappan/testapplication
           registry: index.docker.io
       - run:
@@ -20,6 +19,6 @@ orbs:
   docker: circleci/docker@0.5.2
 version: 2.1
 workflows:
+  commit:
     jobs:
       - build-and-push
-
