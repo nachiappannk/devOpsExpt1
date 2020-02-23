@@ -19,6 +19,7 @@ jobs:
       - docker/push:
           image: nachiappan/testapplication
           registry: index.docker.io
+          tag: attempt
       - run:
           command: |
             echo "Digest is: $(</tmp/digest.txt)"
