@@ -14,7 +14,7 @@ jobs:
       - run: echo "The above is ls"
       - docker/build:
           image: nachiappan/testapplication
-          path: SampleApplication
+          working_directory: SampleApplication
           dockerfile: SampleApplication/Dockerfile
       - docker/push:
           image: nachiappan/testapplication
