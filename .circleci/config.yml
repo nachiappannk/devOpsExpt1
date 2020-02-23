@@ -16,6 +16,7 @@ jobs:
           path: SampleApplication
           image: nachiappan/testapplication
           dockerfile: SampleApplication/SampleApplication/Dockerfile
+          tag: attempt
       - docker/push:
           image: nachiappan/testapplication
           registry: index.docker.io
