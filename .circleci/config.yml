@@ -19,7 +19,7 @@ jobs:
           command: |
             branchName=${CIRCLE_BRANCH:0:20}
             commitNumber=$(git rev-list --count HEAD)
-            TAG=${branchName}"-"${commitNumber}"-"${CIRCLE_SHA1}
+            MYTAG=${branchName}"-"${commitNumber}"-"${CIRCLE_SHA1}
             echo ${MYTAG}
       - docker/push:
           image: nachiappan/testapplication
