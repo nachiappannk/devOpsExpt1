@@ -15,6 +15,12 @@ jobs:
           image: nachiappan/testapplication
           dockerfile: SampleApplication/SampleApplication/Dockerfile
           tag: attempt
+      - run:
+          command: |
+            branchName=${CIRCLE_BRANCH:0:20}
+            commitNumber=$(git rev-list --count HEAD)
+            TAG=${branchName}"-"${commitNumber}"-"${CIRCLE_SHA1}
+            echo ${MYTAG}
       - docker/push:
           image: nachiappan/testapplication
           registry: docker.io
