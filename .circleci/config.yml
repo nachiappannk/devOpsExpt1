@@ -6,7 +6,7 @@ orbs:
 jobs:
   build-and-push:
     docker:
-      - image: circleci/golang:1.13-alpine
+      - image: alpine:3.4
     steps:
       - setup_remote_docker
       - checkout
