@@ -4,7 +4,7 @@ orbs:
   docker: circleci/docker@0.5.2
 
 jobs:
-  build-and-push:
+  docker-build-push:
     machine: true
     steps:
       - checkout
@@ -21,9 +21,9 @@ jobs:
           tag: attempt
 
 workflows:
-  my-workflow:
+  dockerized-application:
     jobs:
-      - build-and-push:
+      - docker-build-push:
           context: mycontext
 
 
